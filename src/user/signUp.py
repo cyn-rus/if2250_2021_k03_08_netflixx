@@ -89,21 +89,7 @@ class signUp(tk.Frame):
             tkMessageBox.showinfo("Netfl\'IXX\'", "Username sudah terdaftar")
             return
 
-        pwRule = [
-            lambda s: any(x.isupper() for x in s),
-            lambda s: any(x.isdigit() for x in s),
-            lambda s: any(x.isalnum() for x in s),
-            lambda s: not bool(re.match('^[a-zA-Z0-9]*$', s)),
-            lambda s: len(s) >= 8,
-                    ]
-
-        if not all(rule(pw) for rule in pwRule):
-            print(pw)
-            tkMessageBox.showinfo("Netfl\'IXX\'", "Password minimal harus mempunyai panjang 8, memiliki minimal 1 huruf kapital, 1 simbol spesial, dan 1 angka")
-            return
-
-        if pw != conf_pw:
-            tkMessageBox.showinfo("Netfl\'IXX'", "Password dan konfirmasi password tidak sesuai")
+        if not checkPassword(pw, conf_pw):
             return
 
         formatDOB = dob.split("/")
@@ -122,6 +108,25 @@ class signUp(tk.Frame):
             email, username, name, pw, alteredDOB
         ], "user.csv")
         template.changePage(self, "halaman utama")
+
+def checkPassword(pw, conf_pw):
+    pwRule = [
+            lambda s: any(x.isupper() for x in s),
+            lambda s: any(x.isdigit() for x in s),
+            lambda s: any(x.isalnum() for x in s),
+            lambda s: not bool(re.match('^[a-zA-Z0-9]*$', s)),
+            lambda s: len(s) >= 8,
+                    ]
+
+    if not all(rule(pw) for rule in pwRule):
+        tkMessageBox.showinfo("Netfl\'IXX\'", "Password minimal harus mempunyai panjang 8, memiliki minimal 1 huruf kapital, 1 simbol spesial, dan 1 angka")
+        return False
+    
+    if pw != conf_pw:
+        tkMessageBox.showinfo("Netfl\'IXX'", "Password dan konfirmasi password tidak sesuai")
+        return False
+
+    return True
 
 def startPage():
     root = tk.Tk()
