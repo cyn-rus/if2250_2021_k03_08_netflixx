@@ -5,6 +5,8 @@ import user.signIn as signIn
 import user.mainPage as mainPage
 import user.signUp as signUp
 import user.forgetPassword as forgetPassword
+import csv
+import numpy as np
 
 def header(page_name):
     header = tk.Label(text=page_name, bg="grey", height=3, width=500)
@@ -44,3 +46,27 @@ def changePage(currPage, nextPage):
             forgetPassword.startPage()
         else:
             print("welp there goes nothing")
+
+def readFile(fileName):
+    data = []
+    with open ("./database/"+fileName, "r") as file:
+        isiFile = csv.reader(file)
+        noHeader = next(isiFile)
+        
+        if noHeader != None:
+            for row in isiFile:
+                data.append(row)
+
+    return (np.array(data)).tolist()
+
+def writeFile(data, fileName):
+    with open("./database/"+fileName, "a", newline="") as file:
+        csv_writer = csv.writer(file)
+        csv_writer.writerow(data)
+        file.close()
+
+def reWriteFile(data, fileName):
+    with open("./database/"+fileName, "w", newline="") as file:
+        csv_writer = csv.write(file)
+        csv_write.writerow(data)
+        file.close()
