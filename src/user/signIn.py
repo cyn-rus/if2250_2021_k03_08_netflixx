@@ -52,6 +52,10 @@ class signIn(tk.Frame):
         loginData = self.email1.get()
         pw = self.pw1.get()
 
+        if loginData == "" or pw == "":
+            tkMessageBox.showinfo("Netfl\'IXX\'", "Dimohonkan untuk mengisi semua data")
+            return
+
         if loginData in listEmail or loginData in listUsername:
             try:
                 idx = listEmail.index(loginData)
