@@ -9,26 +9,26 @@ import csv
 import numpy as np
 
 def header(page_name):
-    header = tk.Label(text=page_name, bg="grey", height=3, width=500)
+    header = tk.Label(bg="#010027", height=3, width=500)
     header.place(x=0)
     header_text = tk.Label(text=page_name)
-    header_text.config(font=("Moiser", 18), bg="grey")
+    header_text.config(font=("Moiser", 20), bg="#010027", fg="#9f64d8")
     header_text.place(x=631, y=25, anchor="c")
 
 def button_film(currPage):
-    fontStyle = tkFont.Font(family="TimeBurner", size=10)
-    button = tk.Button(text="Film", width=5, anchor="c", font=fontStyle, command=lambda: changePage(currPage, "film"))
-    button.place(x=20, y=12)
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Film", width=5, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "film"))
+    button.place(x=20, y=8)
 
 def button_snack(currPage):
-    fontStyle = tkFont.Font(size=10)
-    button = tk.Button(text="Snack", width=6, anchor="c", font=fontStyle, command=lambda: changePage(currPage, "snack"))
-    button.place(x=1207, y=12)
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Snack", width=6, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "snack"))
+    button.place(x=1200, y=8)
 
 def button_halaman_utama(currPage):
-    fontStyle = tkFont.Font(size=10)
-    button = tk.Button(text="Halaman Utama", width=13, anchor="c", font=fontStyle, command=lambda: changePage(currPage, "halaman utama"))
-    button.place(x=20, y=12)
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Halaman Utama", width=15, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman utama"))
+    button.place(x=20, y=9)
 
 def changePage(currPage, nextPage):
     if nextPage == "snack":
