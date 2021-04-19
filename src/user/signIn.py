@@ -63,7 +63,11 @@ class signIn(tk.Frame):
                 idx = listUsername.index(loginData)
             
             if listPass[idx] == pw:
-                template.changePage(self, "film")
+                print(data[idx][5])
+                if data[idx][5] == "user":
+                    template.changePage(self, "film")
+                else:
+                    template.changePage(self, "admin")
             else:
                 tkMessageBox.showerror("Netfl\'IXX\'", "Email/Username tidak sesuai dengan Password")
         else:
