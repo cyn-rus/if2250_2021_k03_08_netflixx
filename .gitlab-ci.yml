@@ -7,7 +7,6 @@ before_script:
 stages:
   - build
   - test
-  - deploy
 
 pylint:
   stage: build
@@ -19,12 +18,3 @@ pytest:
   script:
   - cd test/
   - pytest -v
-
-MSDeploy:
-  stage: deploy
-  script:
-    - cd src
-    - pyinstaller -F main.py
-  artifacts:
-    paths:
-      - src/dist/*.exe
