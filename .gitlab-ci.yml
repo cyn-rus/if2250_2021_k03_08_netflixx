@@ -1,0 +1,30 @@
+image: "python:3.7"
+
+before_script:
+  - python --version
+  - pip install -r requirements.txt
+
+stages:
+  - build
+  - test
+  - deploy
+
+pylint:
+  stage: build
+  script:
+    - pylint -d C0301 src/*.py
+
+pytest:
+  stage: test
+  script:
+  - cd test/
+  - pytest -v
+
+MSDeploy:
+  stage: deploy
+  script:
+    - cd src
+    - pyinstaller -F main.py
+  artifacts:
+    paths:
+      - src/dist/*.exe
