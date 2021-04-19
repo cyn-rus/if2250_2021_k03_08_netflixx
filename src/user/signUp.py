@@ -105,7 +105,7 @@ class signUp(tk.Frame):
         alteredDOB = formatDOB[1] + "/" + formatDOB[0] + "/" + formatDOB[2]
 
         template.writeFile([
-            email, username, name, pw, alteredDOB
+            email, username, name, pw, alteredDOB, "user"
         ], "user.csv")
         template.changePage(self, "halaman utama")
 
