@@ -103,7 +103,14 @@ class addFilm(tk.Frame):
 
         template.writeFile([id, judul, poster, tahun, 0, umur, deskripsi, 0, harga, film], "film.csv")
         tkMessageBox.showinfo("Netfl\'IXX\'", "Film berhasil ditambahkan")
-        template.changePage(self, "add film")
+        self.id1.delete(0, tk.END)
+        self.judul1.delete(0, tk.END)
+        self.poster1.delete(0, tk.END)
+        self.tahun1.delete(0, tk.END)
+        self.umur1.delete(0, tk.END)
+        self.harga1.delete(0, tk.END)
+        self.deskripsi1.delete(0, tk.END)
+        self.film1.delete(0, tk.END)
 
 def startPage():
     root = tk.Tk()

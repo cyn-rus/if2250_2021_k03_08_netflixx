@@ -4,8 +4,8 @@ import tkinter.messagebox as tkMessageBox
 import admin.adminFilmPage as adminFilmPage
 import admin.adminPage as adminPage
 import admin.addFilm as addFilm
-#import admin.removeFilm as removeFilm
-#import admin.updateFilm as updateFilm
+import admin.removeFilm as removeFilm
+import admin.updateFilm as updateFilm
 import csv
 import numpy as np
 
