@@ -13,13 +13,14 @@ class adminPage(tk.Frame):
 
     def admin_page(self):
         template.header("halaman admin")
+        template.button_logout(self)
         fontStyle = tkFont.Font(family="TimeBurner", size=15, weight="bold")
         
         self.admin_film = tk.Button(text="Film", font=fontStyle, bg="#010027", fg="#9f64d8", activebackground="#010027", activeforeground="#9f64d8", command=lambda: template.changePage(self, "halaman admin film"))
-        self.admin_film.place(x=483, y=300, width=170, height=50, anchor="c")
+        self.admin_film.place(x=430, y=300, width=170, height=50, anchor="c")
 
         self.admin_snack = tk.Button(text="Snack", font=fontStyle, bg="#010027", fg="#9f64d8", activebackground="#010027", activeforeground="#9f64d8", command=lambda: template.changePage(self, "halaman admin snack"))
-        self.admin_snack.place(x=883, y=300, width=170, height=50, anchor="c")
+        self.admin_snack.place(x=830, y=300, width=170, height=50, anchor="c")
 
 def startPage():
     root = tk.Tk()

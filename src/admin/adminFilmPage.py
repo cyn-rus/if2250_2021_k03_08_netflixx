@@ -13,6 +13,7 @@ class adminFilmPage(tk.Frame):
 
     def admin_film_page(self):
         template.header("halaman admin: film")
+        template.button_halaman_admin(self)
         fontStyle = tkFont.Font(family="TimeBurner", size=15, weight="bold")
         
         self.add_film = tk.Button(text="ADD", font=fontStyle, bg="#010027", fg="#9f64d8", activebackground="#010027", activeforeground="#9f64d8", command=lambda: template.changePage(self, "add film"))
