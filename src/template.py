@@ -5,6 +5,8 @@ import user.signIn as signIn
 import user.mainPage as mainPage
 import user.signUp as signUp
 import user.forgetPassword as forgetPassword
+import admin.adminFilmPage as adminFilmPage
+import admin.adminPage as adminPage
 import csv
 import numpy as np
 
@@ -34,6 +36,9 @@ def changePage(currPage, nextPage):
     if nextPage == "snack":
         tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
         print("welp no")
+    elif nextPage == "halaman admin snack":
+        tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
+        print("welp no")
     else:
         currPage.master.destroy()
         if nextPage == "sign in":
@@ -44,6 +49,16 @@ def changePage(currPage, nextPage):
             signUp.startPage()
         elif nextPage == "forget password":
             forgetPassword.startPage()
+        elif nextPage == "halaman admin":
+            adminPage.startPage()
+        elif nextPage == "halaman admin film":
+            adminFilmPage.startPage()
+        elif nextPage == "add film":
+            addFilm.startPage()
+        elif nextPage == "remove film":
+            removeFilm.startPage()
+        elif nextPage == "update film":
+            updateFilm.startPage()
         else:
             print("welp there goes nothing")
 
