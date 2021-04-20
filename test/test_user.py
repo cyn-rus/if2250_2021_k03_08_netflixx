@@ -52,7 +52,7 @@ def isSignUpValid(email, username, pw, conf_pw, name, dob):
     if email == "" or username == "" or pw == "" or conf_pw == "" or name == "":
         return False
 
-    emailRegex = '^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
+    emailRegex = r'^(\w|\.|\_|\-)+[@](\w|\_|\-|\.)+[.]\w{2,3}$'
     if not re.search(emailRegex, email):
         return False
     
@@ -152,4 +152,4 @@ def test():
     assert validateCode("123456", 123456) == True
 
     assert changePassword("", "", 0) == False
-    assert changePassword("MeongKucing5%", "MeongKucing5%", 0) == ["a@gmail.com", "aaa", "ini a", "MeongKucing5%", "01/01/2001"]
+    assert changePassword("MeongKucing5%", "MeongKucing5%", 0) == ["a@gmail.com", "aaa", "ini a", "MeongKucing5%", "01/01/2001", "user"]
