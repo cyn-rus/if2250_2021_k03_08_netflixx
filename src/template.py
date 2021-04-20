@@ -5,6 +5,11 @@ import user.signIn as signIn
 import user.mainPage as mainPage
 import user.signUp as signUp
 import user.forgetPassword as forgetPassword
+import admin.adminFilmPage as adminFilmPage
+import admin.adminPage as adminPage
+import admin.addFilm as addFilm
+import admin.removeFilm as removeFilm
+import admin.updateFilm as updateFilm
 import csv
 import numpy as np
 
@@ -30,8 +35,23 @@ def button_halaman_utama(currPage):
     button = tk.Button(text="Halaman Utama", width=15, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman utama"))
     button.place(x=20, y=9)
 
-def changePage(currPage, nextPage):
-    if nextPage == "snack":
+def button_logout(currPage):
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Logout", width=6, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "logout"))
+    button.place(x=1200, y=8)
+
+def button_halaman_admin(currPage):
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Halaman Admin", width=15, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin"))
+    button.place(x=20, y=9)
+
+def button_halaman_admin_film(currPage):
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Halaman Admin: Film", width=20, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin film"))
+    button.place(x=20, y=9)
+
+def changePage(currPage, nextPage, param):
+    if nextPage == "snack" or nextPage == "halaman admin snack":
         tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
         print("welp no")
     else:
@@ -44,12 +64,22 @@ def changePage(currPage, nextPage):
             signUp.startPage()
         elif nextPage == "forget password":
             forgetPassword.startPage()
+        elif nextPage == "halaman admin":
+            adminPage.startPage()
+        elif nextPage == "halaman admin film":
+            adminFilmPage.startPage()
+        elif nextPage == "add film":
+            addFilm.startPage()
+        elif nextPage == "remove film":
+            removeFilm.startPage()
+        elif nextPage == "update film":
+            updateFilm.startPage()
         else:
             print("welp there goes nothing")
 
 def readFile(fileName):
     data = []
-    with open ("./database/"+fileName, "r") as file:
+    with open ("../database/"+fileName, "r") as file:
         isiFile = csv.reader(file)
         for row in isiFile:
             data.append(row)
@@ -57,13 +87,13 @@ def readFile(fileName):
     return (np.array(data)).tolist()
 
 def writeFile(data, fileName):
-    with open("./database/"+fileName, "a", newline="") as file:
+    with open("../database/"+fileName, "a", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerow(data)
         file.close()
 
 def reWriteFile(data, fileName):
-    with open("./database/"+fileName, "w", newline="") as file:
+    with open("../database/"+fileName, "w", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerows(data)
         file.close()
