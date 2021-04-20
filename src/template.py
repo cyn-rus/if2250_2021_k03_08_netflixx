@@ -1,6 +1,10 @@
 import tkinter as tk
 import tkinter.font as tkFont
 import tkinter.messagebox as tkMessageBox
+import user.signIn as signIn
+import user.mainPage as mainPage
+import user.signUp as signUp
+import user.forgetPassword as forgetPassword
 import admin.adminFilmPage as adminFilmPage
 import admin.adminPage as adminPage
 import admin.addFilm as addFilm
@@ -15,6 +19,21 @@ def header(page_name):
     header_text = tk.Label(text=page_name)
     header_text.config(font=("Moiser", 20), bg="#010027", fg="#9f64d8")
     header_text.place(x=631, y=25, anchor="c")
+
+def button_film(currPage):
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Film", width=5, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "film"))
+    button.place(x=20, y=8)
+
+def button_snack(currPage):
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Snack", width=6, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "snack"))
+    button.place(x=1200, y=8)
+
+def button_halaman_utama(currPage):
+    fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
+    button = tk.Button(text="Halaman Utama", width=15, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman utama"))
+    button.place(x=20, y=9)
 
 def button_logout(currPage):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
@@ -32,12 +51,23 @@ def button_halaman_admin_film(currPage):
     button.place(x=20, y=9)
 
 def changePage(currPage, nextPage):
-    if nextPage == "halaman admin snack":
+    if nextPage == "snack":
+        tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
+        print("welp no")
+    elif nextPage == "halaman admin snack":
         tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
         print("welp no")
     else:
         currPage.master.destroy()
-        if nextPage == "halaman admin":
+        if nextPage == "sign in":
+            signIn.startPage()
+        elif nextPage == "halaman utama":
+            mainPage.startPage()
+        elif nextPage == "sign up":
+            signUp.startPage()
+        elif nextPage == "forget password":
+            forgetPassword.startPage()
+        elif nextPage == "halaman admin":
             adminPage.startPage()
         elif nextPage == "halaman admin film":
             adminFilmPage.startPage()
