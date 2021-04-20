@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.messagebox as tkMessageBox
 import tkinter.font as tkFont
 from csv import reader
+from datetime import datetime
 import re
 import sys
 sys.path.insert(1, "..")
@@ -12,8 +13,6 @@ class updateFilm(tk.Frame):
         super().__init__(master)
         self.master = master
         self.pack()
-        #scroll_bar = tk.Scrollbar(self.master)
-        #scroll_bar.pack(side = tk.RIGHT, fill = tk.Y)
         self.update_film_page()
 
     def update_film_page(self):
@@ -192,6 +191,10 @@ class updateFilm(tk.Frame):
                     # newFile = np.array(newFile)).tolist()
                     template.reWriteFile(newFile, "film.csv")
                     tkMessageBox.showinfo("Netfl\'IXX\'", "Film berhasil diperbaharui")
+
+                    tanggal = datetime.today().strftime("%d/%m/%Y")
+                    template.writeFile([tanggal, "update"+" "+id], "xxxxxx.csv")
+
                     template.changePage(self, "update film")
 
 def startPage():

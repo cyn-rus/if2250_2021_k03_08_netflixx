@@ -1,6 +1,7 @@
 import tkinter as tk
 import tkinter.messagebox as tkMessageBox
 import tkinter.font as tkFont
+from datetime import datetime
 import re
 import sys
 sys.path.insert(1, "..")
@@ -101,6 +102,10 @@ class addFilm(tk.Frame):
 
         template.writeFile([id, judul, poster, tahun, 0, umur, deskripsi, 0, harga, film], "film.csv")
         tkMessageBox.showinfo("Netfl\'IXX\'", "Film berhasil ditambahkan")
+
+        tanggal = datetime.today().strftime("%d/%m/%Y")
+        template.writeFile([tanggal, "add"+" "+id], "xxxxxx.csv")
+
         self.id1.delete(0, tk.END)
         self.judul1.delete(0, tk.END)
         self.poster1.delete(0, tk.END)

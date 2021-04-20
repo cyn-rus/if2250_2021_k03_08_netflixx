@@ -2,6 +2,7 @@ import tkinter as tk
 import tkinter.messagebox as tkMessageBox
 import tkinter.font as tkFont
 from csv import reader
+from datetime import datetime
 import sys
 sys.path.insert(1, "..")
 import template
@@ -26,7 +27,7 @@ class removeFilm(tk.Frame):
         self.id1 = tk.Entry(font=entryFont)
         self.id1.place(x=535, y=95, width=210, height=27)
 
-        self.submit = tk.Button(text="Remove Film", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isRemoveFilmValid())
+        self.submit = tk.Button(text="Hapus Film", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isRemoveFilmValid())
         self.submit.place(x=570, y=170, width=140, height=40)
 
     def isRemoveFilmValid(self):
@@ -50,6 +51,10 @@ class removeFilm(tk.Frame):
                     # newFile = np.array(newFile)).tolist()
                     template.reWriteFile(newFile, "film.csv")
                     tkMessageBox.showinfo("Netfl\'IXX\'", "Film berhasil dihapus")
+
+                    tanggal = datetime.today().strftime("%d/%m/%Y")
+                    template.writeFile([tanggal, "remove"+" "+id], "xxxxxx.csv")
+
                     self.id1.delete(0, tk.END)
                 return
 
