@@ -8,15 +8,15 @@ sys.path.insert(1, "..")
 import template
 
 class removeFilm(tk.Frame):
-    def __init__(self, master=None):
+    def __init__(self, user, master=None):
         super().__init__(master)
         self.master = master
         self.pack()
-        self.remove_film_page()
+        self.remove_film_page(user)
 
-    def remove_film_page(self):
+    def remove_film_page(self, user):
         template.header("remove film")
-        template.button_halaman_admin_film(self)
+        template.button_halaman_admin_film(self, user)
 
         textFont = tkFont.Font(family="TimeBurner", size=14, weight="bold")
         entryFont = tkFont.Font(size=13)
@@ -27,10 +27,10 @@ class removeFilm(tk.Frame):
         self.id1 = tk.Entry(font=entryFont)
         self.id1.place(x=535, y=95, width=210, height=27)
 
-        self.submit = tk.Button(text="Hapus Film", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isRemoveFilmValid())
+        self.submit = tk.Button(text="Hapus Film", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isRemoveFilmValid(user))
         self.submit.place(x=570, y=170, width=140, height=40)
 
-    def isRemoveFilmValid(self):
+    def isRemoveFilmValid(self, user):
         data = template.readFile("film.csv")
         idFilm = [row[0] for row in data]
 
@@ -43,7 +43,7 @@ class removeFilm(tk.Frame):
                 response = tkMessageBox.askyesno("Netfl\'IXX\'", teks)
                 if response:
                     newFile = []
-                    with open ("../database/film.csv", "r") as file:
+                    with open ("./database/film.csv", "r") as file:
                         isiFile = reader(file)
                         for row in isiFile:
                             if row[0] != id:
@@ -53,17 +53,17 @@ class removeFilm(tk.Frame):
                     tkMessageBox.showinfo("Netfl\'IXX\'", "Film berhasil dihapus")
 
                     tanggal = datetime.today().strftime("%d/%m/%Y")
-                    template.writeFile([tanggal, "remove"+" "+id], "xxxxxx.csv")
+                    template.writeFile([tanggal, "remove"+" "+id], user+".csv")
 
                     self.id1.delete(0, tk.END)
                 return
 
         tkMessageBox.showwarning("Netfl\'IXX\'", "ID film tidak ditemukan")
 
-def startPage():
+def startPage(arg):
     root = tk.Tk()
     root.title("Netfl\'IXX\'")
     root.geometry("1920x1080")
     root.configure(bg="#24225e")
-    app = removeFilm(master = root)
+    app = removeFilm(arg, master = root)
     app.mainloop()
