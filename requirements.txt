@@ -1,0 +1,6 @@
+pylint==2.4.4
+<<<<<<< ours
+pytest==6.2.3
+=======
+pytest==6.2.3
+>>>>>>> theirs
