@@ -40,14 +40,14 @@ def button_logout(currPage):
     button = tk.Button(text="Logout", width=6, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "logout"))
     button.place(x=1200, y=8)
 
-def button_halaman_admin(currPage):
+def button_halaman_admin(currPage, user):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
-    button = tk.Button(text="Halaman Admin", width=15, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin"))
+    button = tk.Button(text="Halaman Admin", width=15, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin", user))
     button.place(x=20, y=9)
 
-def button_halaman_admin_film(currPage):
+def button_halaman_admin_film(currPage, user):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
-    button = tk.Button(text="Halaman Admin: Film", width=20, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin film"))
+    button = tk.Button(text="Halaman Admin: Film", width=20, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin film", user))
     button.place(x=20, y=9)
 
 def changePage(currPage, nextPage, *args):
@@ -65,15 +65,17 @@ def changePage(currPage, nextPage, *args):
         elif nextPage == "forget password":
             forgetPassword.startPage()
         elif nextPage == "halaman admin":
-            adminPage.startPage()
+            adminPage.startPage(args[0])
         elif nextPage == "halaman admin film":
-            adminFilmPage.startPage()
+            adminFilmPage.startPage(args[0])
         elif nextPage == "add film":
-            addFilm.startPage()
+            addFilm.startPage(args[0])
         elif nextPage == "remove film":
-            removeFilm.startPage()
+            removeFilm.startPage(args[0])
         elif nextPage == "update film":
-            updateFilm.startPage()
+            updateFilm.startPage(args[0])
+        elif nextPage == "logout":
+            print("Anda berhasil keluar dari aplikasi")
         else:
             print("welp there goes nothing")
 
