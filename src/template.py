@@ -50,7 +50,7 @@ def button_halaman_admin_film(currPage):
     button = tk.Button(text="Halaman Admin: Film", width=20, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin film"))
     button.place(x=20, y=9)
 
-def changePage(currPage, nextPage, param):
+def changePage(currPage, nextPage, *args):
     if nextPage == "snack" or nextPage == "halaman admin snack":
         tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
         print("welp no")
@@ -79,7 +79,7 @@ def changePage(currPage, nextPage, param):
 
 def readFile(fileName):
     data = []
-    with open ("../database/"+fileName, "r") as file:
+    with open ("./database/"+fileName, "r") as file:
         isiFile = csv.reader(file)
         for row in isiFile:
             data.append(row)
@@ -87,13 +87,13 @@ def readFile(fileName):
     return (np.array(data)).tolist()
 
 def writeFile(data, fileName):
-    with open("../database/"+fileName, "a", newline="") as file:
+    with open("./database/"+fileName, "a", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerow(data)
         file.close()
 
 def reWriteFile(data, fileName):
-    with open("../database/"+fileName, "w", newline="") as file:
+    with open("./database/"+fileName, "w", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerows(data)
         file.close()
