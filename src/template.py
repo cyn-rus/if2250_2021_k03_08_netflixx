@@ -50,11 +50,8 @@ def button_halaman_admin_film(currPage):
     button = tk.Button(text="Halaman Admin: Film", width=20, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "halaman admin film"))
     button.place(x=20, y=9)
 
-def changePage(currPage, nextPage):
-    if nextPage == "snack":
-        tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
-        print("welp no")
-    elif nextPage == "halaman admin snack":
+def changePage(currPage, nextPage, param):
+    if nextPage == "snack" or nextPage == "halaman admin snack":
         tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
         print("welp no")
     else:
