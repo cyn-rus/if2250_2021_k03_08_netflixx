@@ -18,3 +18,5 @@ pytest:
   script:
   - cd test/
   - pytest -v
+  tags:
+    - Test
