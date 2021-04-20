@@ -11,8 +11,6 @@ class addFilm(tk.Frame):
         super().__init__(master)
         self.master = master
         self.pack()
-        #scroll_bar = tk.Scrollbar(self.master)
-        #scroll_bar.pack(side = tk.RIGHT, fill = tk.Y)
         self.add_film_page()
 
     def add_film_page(self):
@@ -33,11 +31,6 @@ class addFilm(tk.Frame):
         self.judul1 = tk.Entry(font=entryFont)
         self.judul1.place(x=270, y=165, width=210, height=27)
 
-        self.poster = tk.Label(text="Nama File Poster Film", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.poster.place(x=270, y=210)
-        self.poster1 = tk.Entry(font=entryFont)
-        self.poster1.place(x=270, y=235, width=210, height=27)
-
         self.tahun = tk.Label(text="Tahun Rilis Film", font=textFont, bg="#24225e", fg="#9f64d8")
         self.tahun.place(x=270, y=280)
         self.tahun1 = tk.Entry(font=entryFont)
@@ -53,18 +46,23 @@ class addFilm(tk.Frame):
         self.harga1 = tk.Entry(font=entryFont)
         self.harga1.place(x=270, y=445, width=210, height=27)
 
-        self.deskripsi = tk.Label(text="Deskripsi Film", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.deskripsi.place(x=270, y=490)
-        self.deskripsi1 = tk.Entry(font=entryFont)
-        self.deskripsi1.place(x=270, y=515, width=840, height=27)
+        self.poster = tk.Label(text="Nama File Poster Film", font=textFont, bg="#24225e", fg="#9f64d8")
+        self.poster.place(x=270, y=210)
+        self.poster1 = tk.Entry(font=entryFont)
+        self.poster1.place(x=270, y=235, width=210, height=27)
 
-        self.film = tk.Label(text="Teks Isi Film", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.film.place(x=270, y=560)
+        self.film = tk.Label(text="Nama File Film", font=textFont, bg="#24225e", fg="#9f64d8")
+        self.film.place(x=270, y=490)
         self.film1 = tk.Entry(font=entryFont)
-        self.film1.place(x=270, y=585, width=840, height=27)
+        self.film1.place(x=270, y=515, width=210, height=27)
+
+        self.deskripsi = tk.Label(text="Deskripsi Film", font=textFont, bg="#24225e", fg="#9f64d8")
+        self.deskripsi.place(x=270, y=560)
+        self.deskripsi1 = tk.Text(font=entryFont, wrap=tk.WORD)
+        self.deskripsi1.place(x=270, y=585, width=840, height=42)
 
         self.submit = tk.Button(text="Add Film", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isAddFilmValid())
-        self.submit.place(x=590, y=660, width=140, height=40)
+        self.submit.place(x=590, y=650, width=140, height=40)
 
     def isAddFilmValid(self):
         data = template.readFile("film.csv")
@@ -76,11 +74,11 @@ class addFilm(tk.Frame):
         tahun = self.tahun1.get()
         umur = self.umur1.get()
         harga = self.harga1.get()
-        deskripsi = self.deskripsi1.get()
+        deskripsi = self.deskripsi1.get("1.0", "end-1c")
         film = self.film1.get()
 
         if id == "" or judul == "" or poster == "" or tahun == "" or umur == "" or harga == "" or deskripsi == "" or film == "":
-            tkMessageBox.showwarning("Netfl\'IXX\'", "Semua data film harus diisi")
+            tkMessageBox.showwarning("Netfl\'IXX\'", "Semua atribut film harus diisi")
             return
         
         if " " in id:
@@ -98,7 +96,7 @@ class addFilm(tk.Frame):
             tkMessageBox.showerror("Netfl\'IXX\'", "Batas umur penonton harus berupa angka")
             return
         if not re.search(numberRegex, harga):
-            tkMessageBox.showerror("Netfl\'IXX\'", "Harga film harus berupa angka")
+            tkMessageBox.showerror("Netfl\'IXX\'", "Harga tiket film harus berupa angka")
             return
 
         template.writeFile([id, judul, poster, tahun, 0, umur, deskripsi, 0, harga, film], "film.csv")
@@ -109,7 +107,7 @@ class addFilm(tk.Frame):
         self.tahun1.delete(0, tk.END)
         self.umur1.delete(0, tk.END)
         self.harga1.delete(0, tk.END)
-        self.deskripsi1.delete(0, tk.END)
+        self.deskripsi1.delete("1.0", tk.END)
         self.film1.delete(0, tk.END)
 
 def startPage():
