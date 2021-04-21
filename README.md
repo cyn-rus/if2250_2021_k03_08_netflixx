@@ -25,7 +25,7 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 
 ## Tampilan Layar
 ### Halaman Utama
-![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Halaman%20utama.jpg)
+![alt text](doc/halaman_utama.jpg "Halaman Utama")
 
 ### Film
 
@@ -34,9 +34,10 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 ### Update Database
 
 ### User
-![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Sign%20in.jpg)
-![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Forget%20password.jpg)
-![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Forget%20password%20(2).jpg)
-![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Forget%20password%20(3).jpg)
+![alt text](doc/sign_in.jpg "Sign In")
+![alt text](doc/sign_up.jpg "Sign Up")
+![alt text](doc/forget_password.jpg "Forget Password")
+![alt text](doc/forget_password_2.jpg "Forget Password (2)")
+![alt text](doc/forget_password_3.jpg "Forget Password (3)")
 
 # Basis Data
