@@ -4,11 +4,12 @@ from PIL import ImageTk, Image
 from template import *
 
 class daftarFilm(tk.Frame):
-    def __init__(self, master):
+    def __init__(self, master, user):
         super().__init__(master)
         self.master = master
         self.pack()
         self.daftar_film()
+        self.user = user
 
     def daftar_film(self):
         global menu
@@ -22,10 +23,13 @@ class daftarFilm(tk.Frame):
 
         def get_daftar(nama_database):
             raw_database = readFile(nama_database)
+            i = 0
             daftar = []
             for row in raw_database:
-                frame_data = (row[0], row[1], row[2])
-                daftar.append(frame_data)
+                if i != 0:
+                    frame_data = (row[0], row[1], row[2])
+                    daftar.append(frame_data)
+                i+=1
 
             return daftar
 
@@ -52,8 +56,8 @@ class daftarFilm(tk.Frame):
             new_image_one = raw_img_film_one.resize((270, 400))
             poster_film_one = ImageTk.PhotoImage(new_image_one)
 
-            button_poster_one = tk.Button(clickable_frame_one, image=poster_film_one, relief=tk.FLAT, bg="#010027", activebackground="#6a2ecd", cursor="hand2")
-            button_name_one = tk.Button(clickable_frame_one, text=nama_film_one, font=button_font, fg="white", width=25, bg="#010027", activebackground="#6a2ecd", relief=tk.FLAT)
+            button_poster_one = tk.Button(clickable_frame_one, image=poster_film_one, relief=tk.FLAT, bg="#010027", activebackground="#6a2ecd", cursor="hand2", command=lambda: changePage(self, "detail film", id_film_one))
+            button_name_one = tk.Button(clickable_frame_one, text=nama_film_one, font=button_font, fg="white", width=25, bg="#010027", activebackground="#6a2ecd", relief=tk.FLAT, command=lambda: changePage(self, "detail film", id_film_one))
 
             if len(nama_film_one) > 25:
                 button_name_one.configure(anchor=tk.W)
@@ -72,8 +76,8 @@ class daftarFilm(tk.Frame):
             new_image_two = raw_img_film_two.resize((270, 400))
             poster_film_two = ImageTk.PhotoImage(new_image_two)
 
-            button_poster_two = tk.Button(clickable_frame_two, image=poster_film_two, relief=tk.FLAT, bg="#010027", activebackground="#010027", cursor="hand2")
-            button_name_two = tk.Button(clickable_frame_two, text=nama_film_two, font=button_font, fg="white", width=25, bg="#010027", activebackground="#010027", cursor="hand2", relief=tk.FLAT)
+            button_poster_two = tk.Button(clickable_frame_two, image=poster_film_two, relief=tk.FLAT, bg="#010027", activebackground="#010027", cursor="hand2", command=lambda: changePage(self, "detail film", id_film_two))
+            button_name_two = tk.Button(clickable_frame_two, text=nama_film_two, font=button_font, fg="white", width=25, bg="#010027", activebackground="#010027", cursor="hand2", relief=tk.FLAT, command=lambda: changePage(self, "detail film", id_film_two))
 
             if len(nama_film_two) > 25:
                 button_name_two.configure(anchor=tk.W)
@@ -92,8 +96,8 @@ class daftarFilm(tk.Frame):
             new_image_three = raw_img_film_three.resize((270, 400))
             poster_film_three = ImageTk.PhotoImage(new_image_three)
 
-            button_poster_three = tk.Button(clickable_frame_three, image=poster_film_three, relief=tk.FLAT, bg="#010027", activebackground="#010027", cursor="hand2")
-            button_name_three = tk.Button(clickable_frame_three, text=nama_film_three, font=button_font, fg="white", width=25, bg="#010027", activebackground="#010027", cursor="hand2", relief=tk.FLAT)
+            button_poster_three = tk.Button(clickable_frame_three, image=poster_film_three, relief=tk.FLAT, bg="#010027", activebackground="#010027", cursor="hand2", command=lambda: changePage(self, "detail film", id_film_three))
+            button_name_three = tk.Button(clickable_frame_three, text=nama_film_three, font=button_font, fg="white", width=25, bg="#010027", activebackground="#010027", cursor="hand2", relief=tk.FLAT, command=lambda: changePage(self, "detail film", id_film_three))
 
             if len(nama_film_three) > 25:
                 button_name_three.configure(anchor=tk.W)
@@ -154,12 +158,10 @@ class daftarFilm(tk.Frame):
         button_right.grid(row=0, column=3, sticky=tk.W)
         button_last.grid(row=0, column=4, sticky=tk.W)
 
-def startPageDaftarFilm():
+def startPage(username):
     root = tk.Tk()
     root.title("Netfl\'IXX\'")
     root.geometry("1920x1080")
     root.configure(bg="#24225e")
-    app = daftarFilm(master=root)
+    app = daftarFilm(master=root, user=username)
     app.mainloop()
-
-startPageDaftarFilm()

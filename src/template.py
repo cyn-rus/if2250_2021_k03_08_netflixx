@@ -1,10 +1,18 @@
 import tkinter as tk
 import tkinter.font as tkFont
 import tkinter.messagebox as tkMessageBox
-import user.signIn as signIn
-import user.mainPage as mainPage
-import user.signUp as signUp
-import user.forgetPassword as forgetPassword
+# import user.signIn as signIn
+# import user.mainPage as mainPage
+# import user.signUp as signUp
+# import user.forgetPassword as forgetPassword
+# import admin.adminFilmPage as adminFilmPage
+# import admin.adminPage as adminPage
+# import admin.addFilm as addFilm
+# import admin.removeFilm as removeFilm
+# import admin.updateFilm as updateFilm
+import daftarFilm
+import detailFilm
+import reviewFilm
 import csv
 import numpy as np
 
@@ -44,6 +52,22 @@ def changePage(currPage, nextPage):
             signUp.startPage()
         elif nextPage == "forget password":
             forgetPassword.startPage()
+        elif nextPage == "halaman admin":
+            adminPage.startPage(args[0])
+        elif nextPage == "halaman admin film":
+            adminFilmPage.startPage(args[0])
+        elif nextPage == "add film":
+            addFilm.startPage(args[0])
+        elif nextPage == "remove film":
+            removeFilm.startPage(args[0])
+        elif nextPage == "update film":
+            updateFilm.startPage(args[0])
+        elif nextPage == "add review":
+            reviewFilm.startPage(args[0])
+        elif nextPage == "detail film":
+            detailFilm.startPage(args[0])
+        elif nextPage == "daftar film":
+            daftarFilm.startPage(args[0])
         else:
             print("welp there goes nothing")
 
