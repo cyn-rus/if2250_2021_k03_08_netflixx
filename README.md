@@ -31,10 +31,10 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 ![alt text](doc/halaman_utama.jpg "Halaman Utama")
 
 ### Film
-![alt text](doc/detail_film.png "Detail Film")
+![alt text](doc/detail_film.jpg "Detail Film")
 
 ### Review
-![alt text](doc/review_film.png "Review Film")
+![alt text](doc/review_film.jpg "Review Film")
 
 ### Update Database
 ![alt text](doc/halaman_admin.png "Halaman Admin")
