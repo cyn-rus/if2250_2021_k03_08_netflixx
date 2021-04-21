@@ -89,7 +89,7 @@ class detailFilmPage(tk.Frame):
 
         # page position
         # poster film
-        self.img = tk.PhotoImage(file = r"./img/judul.png")
+        self.img = tk.PhotoImage(file = r"./img/" + self.listjdl[self.idx] + ".png")
         self.img1 = self.img.subsample(2, 2)
         tk.Label(image = self.img).place(x = 630, y= 70, width= 200, height=390)
 
