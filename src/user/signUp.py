@@ -24,37 +24,37 @@ class signUp(tk.Frame):
         buttonFont = tkFont.Font(family="TimeBurner", size=14, weight="bold")
 
         self.email = tk.Label(text="Email", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.email.place(x=610, y=70)
+        self.email.place(x=760, y=70)
         self.email1 = tk.Entry(font=entryFont)
-        self.email1.place(x=535, y=95, width=210, height=27)
+        self.email1.place(x=685, y=95, width=210, height=27)
 
         self.username = tk.Label(text="Username", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.username.place(x=590, y=140)
+        self.username.place(x=740, y=140)
         self.username1 = tk.Entry(font=entryFont)
-        self.username1.place(x=535, y=165, width=210, height=27)
+        self.username1.place(x=685, y=165, width=210, height=27)
 
         self.pw = tk.Label(text="Password", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.pw.place(x=593, y=210)
+        self.pw.place(x=743, y=210)
         self.pw1 = tk.Entry(font=entryFont, show="*")
-        self.pw1.place(x=535, y=235, width=210, height=27)
+        self.pw1.place(x=685, y=235, width=210, height=27)
 
         self.conf_pw = tk.Label(text="Konfirmasi Password", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.conf_pw.place(x=550, y=280)
+        self.conf_pw.place(x=700, y=280)
         self.conf_pw1 = tk.Entry(font=entryFont, show="*")
-        self.conf_pw1.place(x=535, y=305, width=210, height=27)
+        self.conf_pw1.place(x=685, y=305, width=210, height=27)
 
         self.name = tk.Label(text="Nama", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.name.place(x=610, y=350)
+        self.name.place(x=760, y=350)
         self.name1 = tk.Entry(font=entryFont)
-        self.name1.place(x=535, y=375, width=210, height=27)
+        self.name1.place(x=685, y=375, width=210, height=27)
 
         self.dob = tk.Label(text="Tanggal Lahir", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.dob.place(x=580, y=420)
+        self.dob.place(x=730, y=420)
         self.dob1 = tkcalendar.DateEntry(width=31, height=27)
-        self.dob1.place(x=535, y=445)
+        self.dob1.place(x=685, y=445)
 
         self.submit = tk.Button(text="Submit", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isSignUpValid())
-        self.submit.place(x=590, y=520, width=100, height=40)
+        self.submit.place(x=740, y=520, width=100, height=40)
 
     def isSignUpValid(self):
         data = template.readFile("user.csv")

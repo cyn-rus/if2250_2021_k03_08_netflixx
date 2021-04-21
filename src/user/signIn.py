@@ -24,23 +24,23 @@ class signIn(tk.Frame):
         buttonFont = tkFont.Font(family="TimeBurner", size=14, weight="bold")
 
         self.email = tk.Label(text="Email/Username", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.email.place(x=574, y=100)
+        self.email.place(x=714, y=100)
         self.email1 = tk.Entry(font=entryFont)
-        self.email1.place(x=530, y=135, width=240, height=27)
+        self.email1.place(x=680, y=135, width=240, height=27)
 
         self.pw = tk.Label(text="Password", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.pw.place(x=599, y=230)
+        self.pw.place(x=749, y=230)
         self.pw1 = tk.Entry(font=entryFont, show="*")
-        self.pw1.place(x=530, y=265, width=240, height=27)
+        self.pw1.place(x=680, y=265, width=240, height=27)
 
         self.sign_up = tk.Button(text="Sign Up", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: template.changePage(self, "sign up"))
-        self.sign_up.place(x=420, y=350, width=90)
+        self.sign_up.place(x=570, y=350, width=90)
 
         self.forget_password = tk.Button(text="Forget Password", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: template.changePage(self, "forget password 1"))
-        self.forget_password.place(x=740, y=350, width=170)
+        self.forget_password.place(x=890, y=350, width=170)
 
         self.submit = tk.Button(text="Submit", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.isSignInValid())
-        self.submit.place(x=597, y=470, width=100, height=40)
+        self.submit.place(x=747, y=470, width=100, height=40)
 
     def isSignInValid(self):
         data = template.readFile("user.csv")

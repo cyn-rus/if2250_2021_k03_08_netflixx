@@ -24,12 +24,12 @@ class forgetPassword1(tk.Frame):
         buttonFont = tkFont.Font(family="TimeBurner", size=15, weight="bold")
 
         self.email = tk.Label(text="Masukkan Email/Username", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.email.place(x=522, y=200)
+        self.email.place(x=672, y=200)
         self.email1 = tk.Entry(font=entryFont)
-        self.email1.place(x=488, y=235, width=300, height=30)
+        self.email1.place(x=638, y=235, width=300, height=30)
 
         self.submit = tk.Button(text="Submit", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.sendEmail())
-        self.submit.place(x=597, y=400, width=100, height=45)
+        self.submit.place(x=747, y=400, width=100, height=45)
 
     def sendEmail(self):
         data = template.readFile("user.csv")
@@ -81,19 +81,19 @@ class forgetPassword2(tk.Frame):
         buttonFont = tkFont.Font(family="TimeBurner", size=14, weight="bold")
 
         self.link = tk.Label(text="Kode reset password sudah dikirimkan melalui email", font=popupFont, bg="#24225e", fg="#9f64d8")
-        self.link.place(x=400, y=100)
+        self.link.place(x=550, y=100)
         self.after(2000, self.link.destroy)
 
         self.pin = tk.Label(text="Masukkan pin yang telah dikirim", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.pin.place(x=491, y=239)
+        self.pin.place(x=641, y=239)
         self.pin1 = tk.Entry(font=entryFont)
-        self.pin1.place(x=580, y=275, width=100, height=30)
+        self.pin1.place(x=730, y=275, width=100, height=30)
 
         self.resend = tk.Button(text="Kirim Ulang", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.reSendEmail(idx))
-        self.resend.place(x=400, y=400, width=120, height=43)
+        self.resend.place(x=550, y=400, width=120, height=43)
 
         self.submit = tk.Button(text="Submit", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.validateCode(idx, code))
-        self.submit.place(x=740, y=400, width=90, height=43)
+        self.submit.place(x=890, y=400, width=90, height=43)
 
     def reSendEmail(self, idx):
         data = template.readFile("user.csv")
@@ -143,17 +143,17 @@ class forgetPassword3(tk.Frame):
         buttonFont = tkFont.Font(family="TimeBurner", size=14, weight="bold")
 
         self.pw = tk.Label(text="Password Baru", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.pw.place(x=563, y=200)
+        self.pw.place(x=713, y=200)
         self.pw1 = tk.Entry(font=entryFont, show="*")
-        self.pw1.place(x=527, y=230, width=210, height=27)
+        self.pw1.place(x=677, y=230, width=210, height=27)
 
         self.conf_pw = tk.Label(text="Konfirmasi Password Baru", font=textFont, bg="#24225e", fg="#9f64d8")
-        self.conf_pw.place(x=510, y=300)
+        self.conf_pw.place(x=660, y=300)
         self.conf_pw1 = tk.Entry(font=entryFont, show="*")
-        self.conf_pw1.place(x=527, y=330, width=210, height=27)
+        self.conf_pw1.place(x=677, y=330, width=210, height=27)
 
         self.submit = tk.Button(text="Submit", font=buttonFont, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.changePassword(idx))
-        self.submit.place(x=588, y=430, width=90, height=43)
+        self.submit.place(x=738, y=430, width=90, height=43)
 
     def changePassword(self, idx):
         pw = self.pw1.get()

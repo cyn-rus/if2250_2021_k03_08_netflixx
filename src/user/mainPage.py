@@ -18,13 +18,13 @@ class mainPage(tk.Frame):
         fontStyle = tkFont.Font(family="TimeBurner", size=15, weight="bold")
         
         self.sign_in = tk.Button(text="Sign In", font=fontStyle, bg="#010027", fg="#9f64d8", activebackground="#010027", activeforeground="#9f64d8", command=lambda: template.changePage(self, "sign in"))
-        self.sign_in.place(x=630, y=200, width=170, height=50, anchor="c")
+        self.sign_in.place(x=770, y=200, width=170, height=50, anchor="c")
 
         self.sign_up = tk.Button(text="Sign Up", font=fontStyle, bg="#010027", fg="#9f64d8", activebackground="#010027", activeforeground="#9f64d8", command=lambda: template.changePage(self, "sign up"))
-        self.sign_up.place(x=630, y=300, width=170, height=50, anchor="c")
+        self.sign_up.place(x=770, y=300, width=170, height=50, anchor="c")
 
         self.forget = tk.Button(text="Forget Password", font=fontStyle, bg="#010027", fg="#9f64d8", activebackground="#010027", activeforeground="#9f64d8", command=lambda: template.changePage(self, "forget password"))
-        self.forget.place(x=630, y=400, width=170, height=50, anchor="c")
+        self.forget.place(x=770, y=400, width=170, height=50, anchor="c")
 
 def startPage():
     root = tk.Tk()
