@@ -24,12 +24,19 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 | User            | 13519118 | Cynthia Rusadi                |
 
 ## Tampilan Layar
-1. Film
+### Halaman Utama
+![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Halaman%20utama.jpg)
 
-2. Review
+### Film
 
-3. Update Database
+### Review
 
-4. User
+### Update Database
+
+### User
+![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Sign%20in.jpg)
+![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Forget%20password.jpg)
+![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Forget%20password%20(2).jpg)
+![alt text](https://gitlab.informatika.org/cyn-rus/if2250_2021_k03_08_netflixx/-/blob/develop/doc/Forget%20password%20(3).jpg)
 
 # Basis Data
