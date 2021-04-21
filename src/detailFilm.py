@@ -15,12 +15,11 @@ class detailFilmPage(tk.Frame):
 
     # mengeluarkan indeks ditemukannya IDFilm
     def getIdRowFilm(self, dataFilm, IDFilm):
-        id = 0
-
-        for item in dataFilm:
-            if (item == IDFilm):
-                return id
-            id += 1
+        for i in range(len(dataFilm)):
+            if (dataFilm[i] == IDFilm):
+                return i
+            else:
+                return -1
     
     # mengecek apakah user pernah mereview detail film yang dipilih
     def isUserHasReview(self, param):
@@ -53,6 +52,7 @@ class detailFilmPage(tk.Frame):
     def makeString(self, idfilm):
         DBrev1 = template.readFile("review.csv")
         first = False
+        boxrev = ""
         for i in range(len(DBrev1)):
             if (DBrev1[i][0] == idfilm and not first):
                 boxrev = "Username : " + DBrev1[i][1] + "\n" + "Rating : " + DBrev1[i][3] + "/10 \n" + "Review : \n" + DBrev1[i][4] + "\n \n"
@@ -91,7 +91,7 @@ class detailFilmPage(tk.Frame):
 
         # page position
         # poster film
-        self.img = tk.PhotoImage(file = r"./img/" + self.listposter[self.idx])
+        self.img = tk.PhotoImage(file = r"./img/" + self.listjdl[self.idx] + ".png")
         self.img1 = self.img.subsample(2, 2)
         tk.Label(image = self.img).place(x = 630, y= 70, width= 200, height=390)
 

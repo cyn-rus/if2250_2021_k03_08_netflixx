@@ -105,7 +105,7 @@ class reviewPage(tk.Frame):
         self.lRate.place(x = 630, y= 130, width=405, height=50)
 
         # scroll for rating film
-        self.scRate = tk.Scale(from_ = 0, to = 10, orient = "horizontal", activebackground="#010109", activeforeground="#9f64d8")
+        self.scRate = tk.Scale(from_ = 0, to = 10, orient = "horizontal")
         self.scRate.place(x = 630, y = 190, width= 405, height= 50)
 
         # text write your review
