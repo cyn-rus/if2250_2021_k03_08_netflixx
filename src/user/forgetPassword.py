@@ -58,7 +58,7 @@ class forgetPassword1(tk.Frame):
     def goToNextPage(self, code, idx):
         self.master.destroy()
         root = tk.Tk()
-        root.title("Testing")
+        root.title("Netfl\'IXX\'")
         root.geometry("1920x1080")
         root.configure(bg="#24225e")
         app = forgetPassword2(code, idx, master=root)
@@ -121,7 +121,7 @@ class forgetPassword2(tk.Frame):
     def goToNextPage(self, idx):
         self.master.destroy()
         root = tk.Tk()
-        root.title("Testing")
+        root.title("Netfl\'IXX\'")
         root.geometry("1920x1080")
         root.configure(bg="#24225e")
         app = forgetPassword3(idx, master=root)
@@ -194,7 +194,7 @@ def sendEmail(receiverName, receiverEmail):
 
 def startPage():
     root = tk.Tk()
-    root.title("Testing")
+    root.title("Netfl\'IXX\'")
     root.geometry("1920x1080")
     root.configure(bg="#24225e")
     app = forgetPassword1(master=root)
