@@ -1,5 +1,5 @@
 ID_film,judul_film,tahun_rilis,rating_film,batasan_umur,deksripsi,jumlah_tonton,harga_film
 F1234,itsgodzila,2019,7.67,18,Kisah perjalanan sayuran kang kung di kota besar niwyok,10000000,160000
-F2058,onoki,2013,9,13,Kisah perjalanan kakek tua pembersih debu dari desa Saruto. Demi membersihkan desa Saruto dari debu onoki harus berjuang melawan penyakit punggungnya,103500,120000
+F2058,onoki,2013,0,13,Kisah perjalanan kakek tua pembersih debu dari desa Saruto. Demi membersihkan desa Saruto dari debu onoki harus berjuang melawan penyakit punggungnya,103500,120000
 F7692,podsca,2011,6.33,8,Kisah perjalanan pemutar lagu di spotipie. Karena tidak punya uang akhirnya podsca tidak dapat membeli paket premiu,1600000,75000
 F9090,mokaGIGA,2015,9,18,Kisah perjalanan emotikon twicth yang mendunia karena ketakutannya pada dunia kegelapan,50000000,200000

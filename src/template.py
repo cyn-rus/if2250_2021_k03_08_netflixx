@@ -50,28 +50,28 @@ def changePage(currPage, nextPage, param):
     else:
         currPage.master.destroy()
         if nextPage == "add review":
-            reviewFilm.reviewPage.startPage()
+            reviewFilm.startPage(param)
         elif nextPage == "detail film":
-            detailFilm.detailFilmPage.startPage()
+            detailFilm.startPage(param)
         else:
             print("welp there goes nothing")
 
 def readFile(fileName):
     data = []
-    with open ("./database/"+fileName, "r") as file:
+    with open ("./src/database/"+fileName, "r") as file:
         isiFile = csv.reader(file)
         for row in isiFile:
             data.append(row)
     return (np.array(data)).tolist()
 
 def writeFile(data, fileName):
-    with open("./database/"+fileName, "a", newline="") as file:
+    with open("./src/database/"+fileName, "a", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerow(data)
         file.close()
 
 def reWriteFile(data, fileName):
-    with open("./database/"+fileName, "w", newline="") as file:
+    with open("./src/database/"+fileName, "w", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerows(data)
         file.close()

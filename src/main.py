@@ -1,3 +1,3 @@
 import detailFilm as mainPage
 
-mainPage.detailFilmPage.startPage()
+mainPage.startPage(["F1234", "user4040",13])
