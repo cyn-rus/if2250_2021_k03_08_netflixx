@@ -53,22 +53,15 @@ class detailFilmPage(tk.Frame):
             template.changePage(self, "beli film", param)
         
     # menggabungkan semua list username, rating, dan review dari review.csv menjadi sebuah string
-    def makeString(self, idfilm):
+    def makeString(self, param):
         DBrev1 = template.readFile("review.csv")
+        idfilm = param[0]
         first = False
         boxrev = ""
         for i in range(len(DBrev1)):
             if DBrev1[i][0] == idfilm:
                 print(DBrev1[i])
                 boxrev += ("Username : " + DBrev1[i][1] + "\n" + "Rating : " + DBrev1[i][3] + "/10\nReview :\n" + DBrev1[i][4] + "\n\n")
-            
-            # if (DBrev1[i][0] == idfilm and not first):
-            #     boxrev = "Username : " + DBrev1[i][1] + "\n" + "Rating : " + DBrev1[i][3] + "/10 \n" + "Review : \n" + DBrev1[i][4] + "\n \n"
-            #     first = True
-            # elif(DBrev1[i][0] == idfilm and first):
-            #     boxrev = boxrev + ("Username : " + DBrev1[i][1] + "\n" + "Rating : " + DBrev1[i][3] + "/10 \n" + "Review : \n" + DBrev1[i][4] + "\n \n")
-        
-        print(boxrev)
         return boxrev
     
     def detailFilm(self, param):
@@ -88,7 +81,7 @@ class detailFilmPage(tk.Frame):
         self.listdesc = [row[6] for row in self.DBfilm1]
         # column 7 = 'harga_film'
         self.listharga = [row[8] for row in self.DBfilm1]
-
+        
         # indeks film yang didetailkan
         self.idx = self.getIdRowFilm(self.listid, param[0])
 
@@ -101,7 +94,7 @@ class detailFilmPage(tk.Frame):
 
         # page position
         # poster film
-        self.img = tk.PhotoImage(file = r"../img/" + self.listposter[self.idx])
+        self.img = tk.PhotoImage(file = r"./img/" + self.listposter[self.idx])
         self.img1 = self.img.subsample(5, 5)
         tk.Label(image = self.img).place(x = 400, y= 70, width= 200, height=390)
 
