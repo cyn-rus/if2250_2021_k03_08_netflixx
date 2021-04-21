@@ -1,4 +1,5 @@
 import tkinter as tk
+from tkinter.constants import FALSE
 import tkinter.font as tkFont
 import tkinter.scrolledtext as tksc
 import tkinter.messagebox as tkmbox
@@ -15,11 +16,14 @@ class detailFilmPage(tk.Frame):
 
     # mengeluarkan indeks ditemukannya IDFilm
     def getIdRowFilm(self, dataFilm, IDFilm):
+        found = False
+
         for i in range(len(dataFilm)):
             if (dataFilm[i] == IDFilm):
+                found = True
                 return i
-            else:
-                return -1
+        if (not found):
+            return -1
     
     # mengecek apakah user pernah mereview detail film yang dipilih
     def isUserHasReview(self, param):
