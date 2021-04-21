@@ -10,6 +10,8 @@ import admin.adminPage as adminPage
 import admin.addFilm as addFilm
 import admin.removeFilm as removeFilm
 import admin.updateFilm as updateFilm
+import detailFilm
+import reviewFilm
 import csv
 import numpy as np
 
@@ -76,6 +78,10 @@ def changePage(currPage, nextPage, *args):
             removeFilm.startPage(args[0])
         elif nextPage == "update film":
             updateFilm.startPage(args[0])
+        elif nextPage == "add review":
+            reviewFilm.startPage(args[0])
+        elif nextPage == "detail film":
+            detailFilm.startPage(args[0])
         else:
             print("welp there goes nothing")
 
