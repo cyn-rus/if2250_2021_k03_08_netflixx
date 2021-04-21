@@ -4,9 +4,9 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 # Cara Menjalankan Program
 ## Prerequisite
 - Minimal [Python 3](https://www.python.org/downloads/)
-- Tkinter[https://www.tutorialspoint.com/how-to-install-tkinter-in-python]
-- Yagmail[https://pypi.org/project/yagmail/]
-- Numpy[https://numpy.org/install/]
+- [Tkinter](https://www.tutorialspoint.com/how-to-install-tkinter-in-python)
+- [Yagmail](https://pypi.org/project/yagmail/)
+- [Numpy](https://numpy.org/install/)
 
 ## Menjalankan Program
 1. Clone project ini
