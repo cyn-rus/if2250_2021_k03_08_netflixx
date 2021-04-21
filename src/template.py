@@ -37,8 +37,8 @@ def button_halaman_utama(currPage):
 
 def button_logout(currPage):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
-    button = tk.Button(text="Logout", width=6, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "logout"))
-    button.place(x=1200, y=8)
+    button = tk.Button(text="Logout", width=8, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "logout"))
+    button.place(x=1180, y=8)
 
 def button_halaman_admin(currPage, user):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
@@ -55,6 +55,8 @@ def changePage(currPage, nextPage, *args):
         tkMessageBox.showinfo("Netfl\'IXX\'", "Halaman ini sedang dalam perbaikan!")
         print("welp no")
     else:
+        if nextPage == "logout":
+            tkMessageBox.showinfo("Netfl\'IXX\'", "Anda berhasil keluar dari aplikasi")
         currPage.master.destroy()
         if nextPage == "sign in":
             signIn.startPage()
@@ -74,14 +76,12 @@ def changePage(currPage, nextPage, *args):
             removeFilm.startPage(args[0])
         elif nextPage == "update film":
             updateFilm.startPage(args[0])
-        elif nextPage == "logout":
-            print("Anda berhasil keluar dari aplikasi")
         else:
             print("welp there goes nothing")
 
 def readFile(fileName):
     data = []
-    with open ("../database/"+fileName, "r") as file:
+    with open ("./database/"+fileName, "r") as file:
         isiFile = csv.reader(file)
         for row in isiFile:
             data.append(row)
@@ -89,13 +89,13 @@ def readFile(fileName):
     return (np.array(data)).tolist()
 
 def writeFile(data, fileName):
-    with open("../database/"+fileName, "a", newline="") as file:
+    with open("./database/"+fileName, "a", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerow(data)
         file.close()
 
 def reWriteFile(data, fileName):
-    with open("../database/"+fileName, "w", newline="") as file:
+    with open("./database/"+fileName, "w", newline="") as file:
         csv_writer = csv.writer(file)
         csv_writer.writerows(data)
         file.close()
