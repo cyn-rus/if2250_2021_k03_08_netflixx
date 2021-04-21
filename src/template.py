@@ -20,7 +20,7 @@ def header(page_name):
     header.place(x=0)
     header_text = tk.Label(text=page_name)
     header_text.config(font=("Moiser", 20), bg="#010027", fg="#9f64d8")
-    header_text.place(x=631, y=25, anchor="c")
+    header_text.place(x=770, y=25, anchor="c")
 
 def button_film(currPage):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
@@ -30,7 +30,7 @@ def button_film(currPage):
 def button_snack(currPage):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
     button = tk.Button(text="Snack", width=6, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: changePage(currPage, "snack"))
-    button.place(x=1200, y=8)
+    button.place(x=1450, y=8)
 
 def button_halaman_utama(currPage):
     fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
