@@ -17,6 +17,10 @@ class reviewPage(tk.Frame):
     # menuliskan nilai rata2 baru dari film yang di review ke film.csv
     def calculateNewRating(self, id):
         DBrev = template.readFile("review.csv")
+        DBfilmtemp = template.readFile("film.csv")
+
+        id_name = DBfilmtemp[id][0]
+
         listid = [row[0] for row in DBrev]
         listrate = [row[3] for row in DBrev]
 
@@ -24,16 +28,16 @@ class reviewPage(tk.Frame):
         count = 0
         avg = 0
         for i in range(len(listid)):
-            if (listid[i] == id):
-                jml += listrate[i]
+            if (listid[i] == id_name):
+                jml += int(listrate[i])
                 count += 1
         if (count > 0):
             avg = jml/count
         else:
             avg = 0
 
-        DBfilmtemp = template.readFile("film.csv")
         DBfilmtemp[id][4] = avg
+        print(DBfilmtemp[id])
         
         template.reWriteFile(DBfilmtemp, "film.csv")
     
@@ -51,7 +55,7 @@ class reviewPage(tk.Frame):
         
         # exception ketika text review masih kosong atau berisi space saja
         if (not found or teks_review == ""):
-            tkmbox.showerror("Error Empty Review", "Your review text is still empty !")
+            tkmbox.showerror("Netfl\'IXX\'", "Oops, sepertinya belum memberikan review")
             return
         
         # mereplace enter line menjadi one line atau satu kalimat
@@ -82,7 +86,7 @@ class reviewPage(tk.Frame):
         self.calculateNewRating(id)
 
         # menampilkan message box review success !
-        tkmbox.showinfo("Succesfully Added", "Your Review has been added ! \nThank you for reviewing !")
+        tkmbox.showinfo("Netfl\'IXX\'", "Review sudah ditambahkan.\nTerima kasih telah memberikan review!")
         
         # back to detail film page
         template.changePage(self, "detail film", param)
@@ -90,7 +94,7 @@ class reviewPage(tk.Frame):
     # menampilkan interface page review
     def reviewPage(self, param):
         # header film and button back film
-        template.header("Add Review")
+        template.header("add review")
         fontStyle = tkFont.Font(family="TimeBurner", size=11, weight="bold")
         fontStyle2 = tkFont.Font(family="TimeBurner", size=11)
         bbackDetailFilm = tk.Button(text="Film", width=5, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: template.changePage(self, "detail film", param))
@@ -98,29 +102,29 @@ class reviewPage(tk.Frame):
 
         # judul film
         self.hReview = tk.Label(text = "Judul Film", font=fontStyle, bg="#010109", fg="#9f64d8")
-        self.hReview.place(x = 630, y = 70, width=405, height=50)
+        self.hReview.place(x = 400, y = 70, width=405, height=50)
 
         # text rate this film
         self.lRate =  tk.Label(text = "Rate this film : ", font=fontStyle, bg="#010109", fg="#9f64d8")
-        self.lRate.place(x = 630, y= 130, width=405, height=50)
+        self.lRate.place(x = 400, y= 130, width=405, height=50)
 
         # scroll for rating film
         self.scRate = tk.Scale(from_ = 0, to = 10, orient = "horizontal")
-        self.scRate.place(x = 630, y = 190, width= 405, height= 50)
+        self.scRate.place(x = 400, y = 190, width= 405, height= 50)
 
         # text write your review
         self.lwReview =  tk.Label(text = "Write your review : ", font=fontStyle, bg="#010109", fg="#9f64d8")
-        self.lwReview.place(x = 630, y = 250, width=405, height= 50)
+        self.lwReview.place(x = 400, y = 250, width=405, height= 50)
 
         # input entry review from user
         self.ewReview =  tksc.ScrolledText(bg ='grey')
-        self.ewReview.place(x = 630, y = 310, width= 405, height= 320)
+        self.ewReview.place(x = 400, y = 310, width= 405, height= 320)
         self.ewReview.focus()
         self.ewReview.configure(font=fontStyle2, bg="#010109", fg="#9f64d8")
 
         # submit button
         self.sbButton = tk.Button(text = "Submit", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.writeDBReview(param))
-        self.sbButton.place(x = 630, y = 640, width=170, height=50)
+        self.sbButton.place(x = 400, y = 640, width=170, height=50)
 
 def startPage(args):
     root = tk.Tk()
