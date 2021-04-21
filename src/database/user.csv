@@ -1,6 +1,9 @@
-email,username,name,password,dob
-cyrus.orange41@gmail.com,cyrus.orange,cyn,helotes,01/01/2001
-cyn.rusadi@gmail.com,cyn.rusadi,cynrus,iniapaan,05/07/2006
-13519118@std.stei.itb.ac.id,if118,gatau,isengaja,17/08/1945
-meong@gmail.com,meonghihi,kucing,Meong123@,01/04/2000
-anjing@informatika.itb.ac.id,anjing_xixi,anjing guk guk,GukGuk12345%,06/04/1997
+email,username,name,password,dob,role
+cyrus.orange41@gmail.com,eloco,cyn,Testes123#,01/01/2001,user
+cyn.rusadi@gmail.com,dseva,cynrus,iniapaAn6^,05/07/2006,admin
+13519118@std.stei.itb.ac.id,mirc,gatau,iengAja0),17/08/1945,user
+meong@gmail.com,meonghihi,noma,Meong123@,01/04/2000,user
+anjing@informatika.itb.ac.id,palmo,anjing guk guk,GukGuk12345%,06/04/1997,user
+tes@gmail.com,kiko,ini tes doang,Heiheihei7&,07/04/2006,user
+tupai@gmail.com,user9028,saya tupai,Tupaitupai1!,05/06/1998,user
+admin@gmail.com,xxxxxx,Admin,adminAdmin4$,10/10/2010,admin
