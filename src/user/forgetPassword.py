@@ -51,7 +51,6 @@ class forgetPassword1(tk.Frame):
         
         try:
             generatedCode = sendEmail(listNama[idx], listEmail[idx])
-            # template.changePage("forget password 2")
             self.goToNextPage(generatedCode, idx)
         except:
             return
@@ -188,9 +187,9 @@ def sendEmail(receiverName, receiverEmail):
     sender = "donotreply.net.flixx@gmail.com"
     senderPW = "ixzwsyxuzsevoloz"
 
-    print(RNGcode)
-    # yag = yagmail.SMTP(user=sender, password=senderPW)
-    # yag.send(to=receiverEmail, subject="Netfl\'IXX\' Reset Password Request", contents=text)
+    # print(RNGcode)
+    yag = yagmail.SMTP(user=sender, password=senderPW)
+    yag.send(to=receiverEmail, subject="Netfl\'IXX\' Reset Password Request", contents=text)
     return RNGcode
 
 def startPage():
