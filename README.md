@@ -19,7 +19,9 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 ## Pembagian Modul
 | Nama modul      |    NIM   | Nama                          |
 | --------------- |:--------:| :-----------------------------|
-| Film            | 13519148 | Muhammad Atthaumar Rifqy      |
+| Pembelian Film  | 13519148 | Muhammad Atthaumar Rifqy      |
+| Pilihan Film    | 13519148 | Muhammad Atthaumar Rifqy      |
+| Deskripsi Film  | 13519159 | Benidictus Galih Mahar Putra  |
 | Review          | 13519159 | Benidictus Galih Mahar Putra  |
 | Update Database | 13519137 | Siti Iedrania Azzariyat Akbar |
 | User            | 13519118 | Cynthia Rusadi                |
@@ -29,8 +31,10 @@ Aplikasi untuk menonton film bernama Netfl'IXX' yang memanfaatkan konsep prosedu
 ![alt text](doc/halaman_utama.jpg "Halaman Utama")
 
 ### Film
+![alt text](doc/detail_film.png "Detail Film")
 
 ### Review
+![alt text](doc/review_film.png "Review Film")
 
 ### Update Database
 ![alt text](doc/halaman_admin.png "Halaman Admin")
