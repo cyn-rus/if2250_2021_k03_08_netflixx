@@ -2,8 +2,6 @@ import tkinter as tk
 import tkinter.font as tkFont
 import tkinter.messagebox as tkmbox
 import tkinter.scrolledtext as tksc
-import sys
-sys.path.insert(1, "..")
 import template
 
 class reviewPage(tk.Frame):
@@ -100,31 +98,35 @@ class reviewPage(tk.Frame):
         bbackDetailFilm = tk.Button(text="Film", width=5, anchor="c", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: template.changePage(self, "detail film", param))
         bbackDetailFilm.place(x=20, y=8)
 
+        data = template.readFile("film.csv")
+        listID = [row[0] for row in data]
+        idx = listID.index(param[0])
+        
         # judul film
-        self.hReview = tk.Label(text = "Judul Film", font=fontStyle, bg="#010109", fg="#9f64d8")
-        self.hReview.place(x = 400, y = 70, width=405, height=50)
+        self.hReview = tk.Label(text = data[idx][1], font=fontStyle, bg="#010109", fg="#9f64d8")
+        self.hReview.place(x = 550, y = 70, width=405, height=50)
 
         # text rate this film
         self.lRate =  tk.Label(text = "Rate this film : ", font=fontStyle, bg="#010109", fg="#9f64d8")
-        self.lRate.place(x = 400, y= 130, width=405, height=50)
+        self.lRate.place(x = 550, y= 130, width=405, height=50)
 
         # scroll for rating film
         self.scRate = tk.Scale(from_ = 0, to = 10, orient = "horizontal")
-        self.scRate.place(x = 400, y = 190, width= 405, height= 50)
+        self.scRate.place(x = 550, y = 190, width= 405, height= 50)
 
         # text write your review
         self.lwReview =  tk.Label(text = "Write your review : ", font=fontStyle, bg="#010109", fg="#9f64d8")
-        self.lwReview.place(x = 400, y = 250, width=405, height= 50)
+        self.lwReview.place(x = 550, y = 250, width=405, height= 50)
 
         # input entry review from user
         self.ewReview =  tksc.ScrolledText(bg ='grey')
-        self.ewReview.place(x = 400, y = 310, width= 405, height= 320)
+        self.ewReview.place(x = 550, y = 310, width= 405, height= 320)
         self.ewReview.focus()
         self.ewReview.configure(font=fontStyle2, bg="#010109", fg="#9f64d8")
 
         # submit button
         self.sbButton = tk.Button(text = "Submit", font=fontStyle, bg="#010109", fg="#9f64d8", activebackground="#010109", activeforeground="#9f64d8", command=lambda: self.writeDBReview(param))
-        self.sbButton.place(x = 400, y = 640, width=170, height=50)
+        self.sbButton.place(x = 660, y = 640, width=170, height=50)
 
 def startPage(args):
     root = tk.Tk()
