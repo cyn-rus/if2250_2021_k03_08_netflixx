@@ -68,6 +68,8 @@ class detailFilmPage(tk.Frame):
         self.listid = [row[0] for row in self.DBfilm1]
         # column 1 = 'judul_film'
         self.listjdl = [row[1] for row in self.DBfilm1]
+        # column 1 = 'poster_film'
+        self.listposter = [row[2] for row in self.DBfilm1]
         # column 3 = 'rating_film'
         self.listrating = [row[4] for row in self.DBfilm1]
         # column 4 = 'batasan_umur'
@@ -89,7 +91,7 @@ class detailFilmPage(tk.Frame):
 
         # page position
         # poster film
-        self.img = tk.PhotoImage(file = r"./img/" + self.listjdl[self.idx] + ".png")
+        self.img = tk.PhotoImage(file = r"./img/" + self.listposter[self.idx])
         self.img1 = self.img.subsample(2, 2)
         tk.Label(image = self.img).place(x = 630, y= 70, width= 200, height=390)
 
