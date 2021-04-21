@@ -33,7 +33,7 @@ class reviewPage(tk.Frame):
             avg = 0
 
         DBfilmtemp = template.readFile("film.csv")
-        DBfilmtemp[id][3] = avg
+        DBfilmtemp[id][4] = avg
         
         template.reWriteFile(DBfilmtemp, "film.csv")
     

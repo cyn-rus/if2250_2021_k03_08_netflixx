@@ -69,13 +69,13 @@ class detailFilmPage(tk.Frame):
         # column 1 = 'judul_film'
         self.listjdl = [row[1] for row in self.DBfilm1]
         # column 3 = 'rating_film'
-        self.listrating = [row[3] for row in self.DBfilm1]
+        self.listrating = [row[4] for row in self.DBfilm1]
         # column 4 = 'batasan_umur'
-        self.listbtsumur = [row[4] for row in self.DBfilm1]
+        self.listbtsumur = [row[5] for row in self.DBfilm1]
         # column 5 = 'deksripsi'
-        self.listdesc = [row[5] for row in self.DBfilm1]
+        self.listdesc = [row[6] for row in self.DBfilm1]
         # column 7 = 'harga_film'
-        self.listharga = [row[7] for row in self.DBfilm1]
+        self.listharga = [row[8] for row in self.DBfilm1]
 
         # indeks film yang didetailkan
         self.idx = self.getIdRowFilm(self.listid, param[0])
